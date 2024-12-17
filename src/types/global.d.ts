@@ -44,6 +44,11 @@ export interface MapMarker {
   currentLocation: Location;
 }
 
+export interface MapContainerProps {
+  center: [number, number];
+  children: React.ReactNode;
+}
+
 export interface FoodTruck {
   objectid: string;
   applicant: string;
