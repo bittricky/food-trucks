@@ -23,8 +23,8 @@ const MapContainer: FC<MapContainerProps> = ({ center, children }) => {
     <div className="w-full h-full">
       <LeafletMapContainer center={center} zoom={13} style={{ width: "100%", height: "100%" }}>
         <TileLayer
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution='&copy; <a href="https://www.mapbox.com/">Mapbox</a>'
+          url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
         />
         {children}
       </LeafletMapContainer>

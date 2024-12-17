@@ -26,9 +26,9 @@ const createIcon = (color: string): Icon | null => {
 };
 
 const icons = {
-  default: createIcon("yellow"),
-  selected: createIcon("red"),
-  user: createIcon("blue"),
+  default: createIcon("violet"),
+  selected: createIcon("yellow"),
+  user: createIcon("violet"),
 };
 
 const createMapMarkers = ({ foodTrucks, currentLocation }: MapMarker) => {
