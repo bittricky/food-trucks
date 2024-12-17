@@ -28,7 +28,15 @@ export interface SidebarHeaderProps {
 export interface SidebarSearchProps {
   value: string;
   onChange: (value: string) => void;
+}
+
+export interface TruckListProps {
+  trucks: FoodTruck[];
   isLoading: boolean;
+}
+
+export interface TruckCardProps {
+  truck: FoodTruck;
 }
 
 export interface FoodTruck {

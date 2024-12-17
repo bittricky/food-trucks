@@ -2,7 +2,7 @@
 
 import { FC, useState } from "react";
 
-import { SidebarHeader, SidebarSearch } from "@/components/sidebar";
+import { SidebarHeader, SidebarSearch, TruckList } from "@/components/sidebar";
 import { useNearbyFoodTrucks } from "@/hooks/useNearbyFoodTrucks";
 import { useLocation } from "@/context";
 
@@ -38,9 +38,9 @@ const Sidebar: FC = () => {
         onCollapse={() => setIsOpen(true)}
       />
 
-      <SidebarSearch value={query} onChange={setQuery} isLoading={isLoading} />
+      <SidebarSearch value={query} onChange={setQuery} />
 
-      {/* TODO: Truck List */}
+      <TruckList trucks={foodTrucks} isLoading={isLoading} />
     </div>
   );
 };

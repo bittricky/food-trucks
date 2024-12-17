@@ -9,7 +9,7 @@ const SidebarHeader: FC<SidebarHeaderProps> = ({
   onCollapse,
 }) => {
   return (
-    <div className="flex items-center justify-between p-4 border-b border-gray-700">
+    <div className="flex items-center justify-between p-4 border-purple-500 border-gray-700">
       <div className="text-purple-500">
         Found <span className="font-bold">{trucksCount}</span> vendors in{" "}
         <span className="font-bold">{locationsCount}</span> different locations
