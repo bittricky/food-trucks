@@ -6,9 +6,9 @@ export async function getFoodTrucks(
   radius: number = 5
 ): Promise<FoodTruck[]> {
   const params = new URLSearchParams({
-    lat: location.latitude.toString(),
-    lon: location.longitude.toString(),
-    radius: radius.toString(),
+    latitude: location.latitude.toString(),
+    longitude: location.longitude.toString(),
+    radius: (radius * 1000).toString(), // Convert km to meters
   });
 
   if (query) {

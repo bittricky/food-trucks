@@ -1,7 +1,8 @@
 "use client";
 
-import { FC, useEffect } from "react";
+import { FC } from "react";
 import dynamic from "next/dynamic";
+import "leaflet/dist/leaflet.css";
 
 import { MapContainerProps } from "@/types/global";
 
@@ -16,26 +17,18 @@ const TileLayer = dynamic(
 );
 
 const MapContainer: FC<MapContainerProps> = ({ center, children }) => {
-  useEffect(() => {
-    const link = document.createElement("link");
-    link.rel = "stylesheet";
-    link.href = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";
-    document.head.appendChild(link);
-    return () => {
-      document.head.removeChild(link);
-    };
-  }, []);
-
   if (typeof window === "undefined") return null;
 
   return (
-    <LeafletMapContainer center={center} zoom={13} className="w-full h-full">
-      <TileLayer
-        attribution='© <a href="https://www.mapbox.com/">Mapbox</a>'
-        url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
-      />
-      {children}
-    </LeafletMapContainer>
+    <div className="w-full h-full">
+      <LeafletMapContainer center={center} zoom={13} style={{ width: "100%", height: "100%" }}>
+        <TileLayer
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        />
+        {children}
+      </LeafletMapContainer>
+    </div>
   );
 };
 
