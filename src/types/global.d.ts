@@ -19,6 +19,12 @@ export interface LocationSearchResult {
   display_name: string;
 }
 
+export interface LocationSearchResult {
+  lat: string;
+  lon: string;
+  display_name: string;
+}
+
 export interface SidebarHeaderProps {
   trucksCount: number;
   locationsCount: number;

@@ -1,4 +1,4 @@
-import type { FoodTruck, Location } from "@/types/global";
+import type { FoodTruck, Location, LocationSearchResult } from "@/types/global";
 
 export async function getFoodTrucks(
   location: Location,
@@ -22,4 +22,21 @@ export async function getFoodTrucks(
   }
 
   return response.json();
+}
+
+export async function searchLocation(
+  query: string
+): Promise<LocationSearchResult | null> {
+  const response = await fetch(
+    `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(
+      query
+    )}&limit=1`
+  );
+
+  if (!response.ok) {
+    throw new Error("Failed to search location");
+  }
+
+  const data = await response.json();
+  return data[0] || null;
 }
