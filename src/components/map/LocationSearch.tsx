@@ -30,7 +30,7 @@ const LocationSearch: FC = () => {
         });
         setSearchQuery("");
       } else {
-        setError("No results found. Try a different search term.");
+        setError("Location not found. Please try a different search term.");
       }
     } catch (error) {
       setError("Error searching location. Please try again.");
