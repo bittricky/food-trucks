@@ -1,8 +1,10 @@
+"use client";
+
 import { FC } from "react";
 
 import { useLocation } from "@/context";
 import { useNearbyFoodTrucks } from "@/hooks/useNearbyFoodTrucks";
-import { MapContainer, LocationControl } from "@/components/map";
+// import { MapContainer, LocationControl } from "@/components/map";
 import createMapMarkers from "@/utils/map";
 
 const FoodTruckMap: FC = () => {

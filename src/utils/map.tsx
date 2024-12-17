@@ -1,10 +1,20 @@
+"use client";
+
 import { Marker, Popup } from "react-leaflet";
-import L from "leaflet";
+import type { Icon } from "leaflet";
+
+// Only import Leaflet if we're on the client side
+let L: any;
+if (typeof window !== "undefined") {
+  L = require("leaflet");
+}
 
 import { MapMarker } from "@/types/global";
 
-const createIcon = (color: string) => {
-  new L.Icon({
+const createIcon = (color: string): Icon | null => {
+  if (!L) return null;
+
+  return new L.Icon({
     iconUrl: `https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-${color}.png`,
     shadowUrl:
       "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png",
