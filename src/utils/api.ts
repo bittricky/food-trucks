@@ -6,13 +6,13 @@ export async function getFoodTrucks(
   radius: number = 5
 ): Promise<FoodTruck[]> {
   const params = new URLSearchParams({
-    latitude: location.latitude.toString(),
-    longitude: location.longitude.toString(),
-    radius: (radius * 1000).toString(), // Convert km to meters
+    lat: location.latitude.toString(),
+    lon: location.longitude.toString(),
+    radius: radius.toString(),
   });
 
   if (query) {
-    params.append("query", query);
+    params.append("q", query);
   }
 
   const response = await fetch(`/api/food-trucks?${params.toString()}`);
