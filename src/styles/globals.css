@@ -31,3 +31,30 @@ body {
   color: var(--primary);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
+
+/* Custom animations */
+@keyframes slide-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-20%);
+  }
+}
+
+@keyframes bounce-slow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-slide-left {
+  animation: slide-left 3s linear infinite;
+}
+
+.animate-bounce-slow {
+  animation: bounce-slow 2s ease-in-out infinite;
+}
