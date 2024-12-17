@@ -17,7 +17,6 @@ const TileLayer = dynamic(
   { ssr: false }
 );
 
-// This component handles updating the map center when the center prop changes
 const MapCenterHandler: FC<{ center: [number, number] }> = ({ center }) => {
   const map = useMap();
 
