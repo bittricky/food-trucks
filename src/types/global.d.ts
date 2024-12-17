@@ -13,6 +13,12 @@ export interface LocationContextType {
   setCurrentLocation: (location: Location) => void;
 }
 
+export interface LocationSearchResult {
+  lat: string;
+  lon: string;
+  display_name: string;
+}
+
 export interface FoodTruck {
   objectid: string;
   applicant: string;
