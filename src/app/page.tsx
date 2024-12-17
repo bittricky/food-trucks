@@ -1,9 +1,9 @@
-import React from "react";
+import { FC } from "react";
 
 import { Sidebar } from "@/components/sidebar";
 import RootLayout from "@/app/layout";
 
-const Page: React.FC = async () => {
+const Page: FC = async () => {
   return (
     <RootLayout>
       <main className="h-screen flex flex-col">

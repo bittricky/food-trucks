@@ -2,6 +2,7 @@
 
 import { FC, useState } from "react";
 
+import { SidebarHeader } from "@/components/sidebar";
 import { useNearbyFoodTrucks } from "@/hooks/useNearbyFoodTrucks";
 import { useLocation } from "@/context";
 
@@ -31,7 +32,11 @@ const Sidebar: FC = () => {
 
   return (
     <div className="w-full md:w-96 bg-white text-purple-500 h-full overflow-hidden">
-      {/* TODO: Sidebar Header */}
+      <SidebarHeader
+        trucksCount={foodTrucks.length}
+        locationsCount={uniqueVendors.size}
+        onCollapse={() => setIsOpen(true)}
+      />
 
       {/* TODO: Sidebar Body */}
 
