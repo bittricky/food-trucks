@@ -23,7 +23,7 @@ const Sidebar: FC = () => {
     return (
       <button
         onClick={() => setIsOpen(false)}
-        className="w-12 bg-white-50 text-purple-500 hover:bg-white-50 transition-colors"
+        className="w-12 bg-purple-900/50 text-yellow-300 hover:bg-purple-800/50 transition-colors border-l border-purple-700"
       >
         ▶
       </button>
@@ -31,7 +31,7 @@ const Sidebar: FC = () => {
   }
 
   return (
-    <div className="w-full md:w-96 bg-white text-purple-500 h-full overflow-hidden">
+    <div className="w-96 bg-purple-900/50 border-l border-purple-700">
       <SidebarHeader
         trucksCount={foodTrucks.length}
         locationsCount={uniqueVendors.size}
