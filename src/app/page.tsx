@@ -1,6 +1,7 @@
 import { FC } from "react";
 
-import { Sidebar, FoodTruckMap } from "@/components/sidebar";
+import { Sidebar } from "@/components/sidebar";
+import { FoodTruckMap } from "@/components/map";
 import RootLayout from "@/app/layout";
 
 const Page: FC = async () => {
