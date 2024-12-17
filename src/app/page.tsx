@@ -1,5 +1,6 @@
 import React from "react";
 
+import { Sidebar } from "@/components/sidebar";
 import RootLayout from "@/app/layout";
 
 const Page: React.FC = async () => {
@@ -7,7 +8,7 @@ const Page: React.FC = async () => {
     <RootLayout>
       <main className="h-screen flex flex-col">
         <div className="flex-1 flex flex-col md:flex-row">
-          {/* TODO: Add sidebar */}
+          <Sidebar />
           <div className="flex-1 relative">
             {/* { TODO: Add Food Truck Map } */}
           </div>
