@@ -19,6 +19,18 @@ export interface LocationSearchResult {
   display_name: string;
 }
 
+export interface SidebarHeaderProps {
+  trucksCount: number;
+  locationsCount: number;
+  onCollapse: () => void;
+}
+
+export interface SidebarSearchProps {
+  value: string;
+  onChange: (value: string) => void;
+  isLoading: boolean;
+}
+
 export interface FoodTruck {
   objectid: string;
   applicant: string;
