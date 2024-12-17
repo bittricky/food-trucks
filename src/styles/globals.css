@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #A855F7; /* Purple-500 */
+  --secondary: #FDE047; /* Yellow-300 */
+  --background: #4C1D95; /* Purple-900 */
+  --text-color: #FFFFFF; /* White */
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text-color);
+}
+
+/* Leaflet specific styles */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  background-color: var(--background) !important;
+}
+
+.leaflet-tile {
+  filter: grayscale(0%) hue-rotate(220deg);
+}
+
+.leaflet-control-container .leaflet-control {
+  background-color: var(--secondary); /* Yellow */
+  border-radius: 8px;
+  color: var(--primary);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
