@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { Sidebar } from "@/components/sidebar";
+import { Sidebar, FoodTruckMap } from "@/components/sidebar";
 import RootLayout from "@/app/layout";
 
 const Page: FC = async () => {
@@ -10,7 +10,7 @@ const Page: FC = async () => {
         <div className="flex-1 flex flex-col md:flex-row">
           <Sidebar />
           <div className="flex-1 relative">
-            {/* { TODO: Add Food Truck Map } */}
+            <FoodTruckMap />
           </div>
         </div>
       </main>

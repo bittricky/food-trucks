@@ -39,6 +39,11 @@ export interface TruckCardProps {
   truck: FoodTruck;
 }
 
+export interface MapMarker {
+  foodTrucks: FoodTruck[];
+  currentLocation: Location;
+}
+
 export interface FoodTruck {
   objectid: string;
   applicant: string;
