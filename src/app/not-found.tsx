@@ -14,11 +14,11 @@ export default function NotFound() {
             </span>
           </h1>
           <h2 className="text-3xl font-semibold text-white">
-            Oops! That's the wrong street!
+            Uh-oh! Take a wrong turn did we?
           </h2>
           <div className="space-y-2 text-purple-200">
             <p className="text-xl">
-              Looks like this food truck took a wrong turn...
+              Looks like this food truck ended up on the wrong street...
             </p>
             <p className="text-lg italic">
               (Probably chasing that perfect parking spot!)

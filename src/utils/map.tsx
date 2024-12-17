@@ -27,7 +27,7 @@ const createIcon = (color: string): Icon | null => {
 
 const icons = {
   default: createIcon("violet"),
-  selected: createIcon("yellow"),
+  selected: createIcon("red"),
   user: createIcon("violet"),
 };
 
