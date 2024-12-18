@@ -45,6 +45,12 @@ export interface TruckCardProps {
   truck: FoodTruck;
 }
 
+export interface TruckMarkerProps {
+  truck: FoodTruck;
+  isSelected: boolean;
+  onSelect: (id: string) => void;
+}
+
 export interface MapMarker {
   foodTrucks: FoodTruck[];
   currentLocation: Location;

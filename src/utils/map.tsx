@@ -1,7 +1,10 @@
 "use client";
 
-import { Marker, Popup } from "react-leaflet";
+import { useState, FC } from "react";
+import { Marker, Popup, useMapEvents } from "react-leaflet";
 import type { Icon } from "leaflet";
+
+import { TruckMarkerProps } from "@/types/global";
 
 // Only import Leaflet if we're on the client side
 let L: any;
@@ -9,7 +12,7 @@ if (typeof window !== "undefined") {
   L = require("leaflet");
 }
 
-import { MapMarker } from "@/types/global";
+import { MapMarker, FoodTruck } from "@/types/global";
 
 const createIcon = (color: string): Icon | null => {
   if (!L) return null;
@@ -31,9 +34,51 @@ const icons = {
   user: createIcon("violet"),
 };
 
-const createMapMarkers = ({ foodTrucks, currentLocation }: MapMarker) => {
+const TruckMarker: FC<TruckMarkerProps> = ({ truck, isSelected, onSelect }) => {
+  return (
+    <Marker
+      key={truck.objectid}
+      position={[truck.latitude, truck.longitude]}
+      icon={isSelected ? icons.selected : icons.default}
+      eventHandlers={{
+        click: () => onSelect(truck.objectid),
+      }}
+    >
+      <Popup>
+        <div className="p-2">
+          <h3 className="font-bold">{truck.applicant}</h3>
+          <p className="text-sm">{truck.address}</p>
+          <p className="text-sm mt-1">{truck.fooditems}</p>
+          {truck.dayshours && (
+            <p className="text-sm mt-1">Hours: {truck.dayshours}</p>
+          )}
+        </div>
+      </Popup>
+    </Marker>
+  );
+};
+
+const MapClickHandler: FC<{ onMapClick: () => void }> = ({ onMapClick }) => {
+  useMapEvents({
+    click: onMapClick,
+  });
+  return null;
+};
+
+const MapMarkers: FC<MapMarker> = ({ foodTrucks, currentLocation }) => {
+  const [selectedTruck, setSelectedTruck] = useState<string | null>(null);
+
+  const handleTruckSelect = (id: string) => {
+    setSelectedTruck(id);
+  };
+
+  const handleMapClick = () => {
+    setSelectedTruck(null);
+  };
+
   return (
     <>
+      <MapClickHandler onMapClick={handleMapClick} />
       <Marker
         position={[currentLocation.latitude, currentLocation.longitude]}
         icon={icons.user}
@@ -49,25 +94,15 @@ const createMapMarkers = ({ foodTrucks, currentLocation }: MapMarker) => {
       </Marker>
 
       {foodTrucks.map((truck) => (
-        <Marker
+        <TruckMarker
           key={truck.objectid}
-          position={[truck.latitude, truck.longitude]}
-          icon={icons.default}
-        >
-          <Popup>
-            <div className="p-2">
-              <h3 className="font-bold">{truck.applicant}</h3>
-              <p className="text-sm">{truck.address}</p>
-              <p className="text-sm mt-1">{truck.fooditems}</p>
-              {truck.dayshours && (
-                <p className="text-sm mt-1">Hours: {truck.dayshours}</p>
-              )}
-            </div>
-          </Popup>
-        </Marker>
+          truck={truck}
+          isSelected={selectedTruck === truck.objectid}
+          onSelect={handleTruckSelect}
+        />
       ))}
     </>
   );
 };
 
-export default createMapMarkers;
+export default MapMarkers;
