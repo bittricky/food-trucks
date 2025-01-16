@@ -1,5 +1,7 @@
 # Food Trucks
 
+> People gotta eat.
+
 An interactive web application to help you discover food trucks near you.
 
 ## Features
